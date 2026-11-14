@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c4bfevjcajqft"]
+
+[ext_resource type="Script" uid="uid://busjlq8fuxslt" path="res://src/puzzles/plates/plate/plate.gd" id="1_jj4d7"]
+[ext_resource type="Texture2D" uid="uid://daxetnsxooe3e" path="res://assets/textures/logic.png" id="1_kniw0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj4d7"]
+atlas = ExtResource("1_kniw0")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6yr2"]
+atlas = ExtResource("1_kniw0")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tt5rg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj4d7")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6yr2")
+}],
+"loop": 1,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kniw0"]
+
+[node name="PlateLogic" type="Area2D" unique_id=756017024]
+collision_mask = 47
+script = ExtResource("1_jj4d7")
+metadata/_custom_type_script = "uid://busjlq8fuxslt"
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1546751023]
+sprite_frames = SubResource("SpriteFrames_tt5rg")
+animation = &"active"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=151082666]
+shape = SubResource("RectangleShape2D_kniw0")

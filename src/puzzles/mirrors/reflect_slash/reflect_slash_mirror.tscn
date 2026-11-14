@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://s40jctnf0qti"]
+
+[ext_resource type="PackedScene" uid="uid://bf6hnxfbgmg6p" path="res://src/puzzles/mirrors/mirror/mirror.tscn" id="1_5ftgu"]
+[ext_resource type="Texture2D" uid="uid://cu5q0mkh2vxyf" path="res://assets/textures/blocks.png" id="2_5ftgu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ftgu"]
+atlas = ExtResource("2_5ftgu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hsfn"]
+atlas = ExtResource("2_5ftgu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jmt8"]
+atlas = ExtResource("2_5ftgu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gou2g"]
+atlas = ExtResource("2_5ftgu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddiou"]
+atlas = ExtResource("2_5ftgu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djb1l"]
+atlas = ExtResource("2_5ftgu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bojpk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ftgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hsfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jmt8")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gou2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddiou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djb1l")
+}],
+"loop": 1,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[node name="ReflectSlashMirror" unique_id=1882829077 instance=ExtResource("1_5ftgu")]
+
+[node name="Shadow" parent="." index="0" unique_id=980502406]
+position = Vector2(0, 18)
+
+[node name="AnimatedSprite" parent="." index="2" unique_id=1831063692]
+sprite_frames = SubResource("SpriteFrames_bojpk")
+animation = &"passive"

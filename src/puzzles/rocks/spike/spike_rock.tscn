@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://54f5igjppsuq"]
+
+[ext_resource type="Texture2D" uid="uid://cu5q0mkh2vxyf" path="res://assets/textures/blocks.png" id="1_tjwyd"]
+[ext_resource type="Script" uid="uid://36jqmyn8o14b" path="res://src/shared/areas/attack/attack_area.gd" id="2_kwion"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i7vg"]
+atlas = ExtResource("1_tjwyd")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjwyd"]
+size = Vector2(34.09375, 32.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwion"]
+size = Vector2(30, 29)
+
+[node name="SpikeRock" type="Node2D" unique_id=1835692106]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1342674841]
+texture_filter = 1
+texture = SubResource("AtlasTexture_6i7vg")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=380076039]
+collision_mask = 2
+script = ExtResource("2_kwion")
+metadata/_custom_type_script = "uid://36jqmyn8o14b"
+
+[node name="Collision" type="CollisionShape2D" parent="AttackArea" unique_id=1089985566]
+shape = SubResource("RectangleShape2D_tjwyd")
+
+[node name="PhysicArea" type="StaticBody2D" parent="." unique_id=47302677]
+collision_mask = 46
+
+[node name="Collision" type="CollisionShape2D" parent="PhysicArea" unique_id=337869714]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_kwion")

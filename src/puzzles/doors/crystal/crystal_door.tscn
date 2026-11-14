@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bvbaelupuvf6u"]
+
+[ext_resource type="Script" uid="uid://b2s6gul680xvp" path="res://src/puzzles/doors/crystal/crystal_door.gd" id="1_p03ae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch4tp"]
+size = Vector2(576, 8)
+
+[node name="CrystalDoorArea" type="Area2D" unique_id=905562521]
+collision_mask = 2
+script = ExtResource("1_p03ae")
+metadata/_custom_type_script = "uid://b2s6gul680xvp"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1827424677]
+position = Vector2(288, -4)
+shape = SubResource("RectangleShape2D_ch4tp")

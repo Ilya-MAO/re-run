@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cv51gsh2yxfu6"]
+
+[ext_resource type="Script" uid="uid://mgkglyxbyl7v" path="res://src/puzzles/doors/door/door.gd" id="1_0owwl"]
+[ext_resource type="Script" uid="uid://36jqmyn8o14b" path="res://src/shared/areas/attack/attack_area.gd" id="1_75c22"]
+[ext_resource type="Texture2D" uid="uid://b1c57ipwtcpsm" path="res://assets/textures/elements.png" id="2_wha7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0owwl"]
+atlas = ExtResource("2_wha7p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p767h"]
+size = Vector2(31.75, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75c22"]
+size = Vector2(31.75, 8)
+
+[node name="SpikeDoor" type="Area2D" unique_id=1568258052]
+collision_mask = 2
+script = ExtResource("1_0owwl")
+type = 1
+metadata/_custom_type_script = "uid://mgkglyxbyl7v"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1005238044]
+texture_filter = 1
+position = Vector2(0, 5)
+texture = SubResource("AtlasTexture_0owwl")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1863962342]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_p767h")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=2084604354]
+texture_filter = 1
+collision_mask = 14
+script = ExtResource("1_75c22")
+metadata/_custom_type_script = "uid://36jqmyn8o14b"
+
+[node name="Collision" type="CollisionShape2D" parent="AttackArea" unique_id=823025919]
+texture_filter = 1
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_75c22")

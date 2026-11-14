@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://6crdfhvqxmy7"]
+
+[ext_resource type="Texture2D" uid="uid://bcha4gu242urb" path="res://assets/textures/hud/rightousness/back.png" id="1_khxbx"]
+[ext_resource type="Texture2D" uid="uid://cjrek5dg2xun0" path="res://assets/textures/hud/health/back.png" id="2_12dqy"]
+[ext_resource type="Texture2D" uid="uid://y2m1k7j4e63h" path="res://assets/textures/hud/health/border.png" id="3_5yj72"]
+[ext_resource type="Texture2D" uid="uid://bkudsh6uo2jrp" path="res://assets/textures/hud/health/fill.png" id="4_tmbsb"]
+[ext_resource type="Script" uid="uid://ds51xjokrc2vc" path="res://src/ui/health.gd" id="5_ukfwo"]
+[ext_resource type="Script" uid="uid://bv05d5sugcr0e" path="res://src/ui/minimap.gd" id="6_12dqy"]
+[ext_resource type="Texture2D" uid="uid://cffoa7v18lqq" path="res://assets/textures/hud/minimap/back.png" id="6_87a6v"]
+[ext_resource type="Script" uid="uid://dnwllwnieoy0e" path="res://src/ui/coins.gd" id="6_wp6mi"]
+[ext_resource type="Texture2D" uid="uid://b1c57ipwtcpsm" path="res://assets/textures/elements.png" id="7_k5qe1"]
+[ext_resource type="Texture2D" uid="uid://ciow1d6j21hlf" path="res://assets/textures/hud/minimap/border.png" id="7_wp6mi"]
+[ext_resource type="FontFile" uid="uid://cofonxdvulcmm" path="res://assets/fonts/Jersey10.ttf" id="8_wp6mi"]
+[ext_resource type="Script" uid="uid://bry6hyfe7cvkt" path="res://src/ui/slot.gd" id="9_5yj72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukfwo"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.3882353, 0.60784316, 1, 0.28627452)
+border_color = Color(0.3882353, 0.60784316, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yj72"]
+atlas = ExtResource("7_k5qe1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmbsb"]
+font = ExtResource("8_wp6mi")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WorldHud" type="CanvasLayer" unique_id=1138826858]
+
+[node name="TopBar" type="MarginContainer" parent="." unique_id=709245058]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 21.0
+grow_horizontal = 2
+
+[node name="RighteousnessBar" type="Control" parent="TopBar" unique_id=1638589006]
+custom_minimum_size = Vector2(300, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="FrameBar" type="TextureRect" parent="TopBar/RighteousnessBar" unique_id=448221976]
+texture_filter = 1
+layout_mode = 0
+texture = ExtResource("1_khxbx")
+
+[node name="RowBar" type="HBoxContainer" parent="TopBar/RighteousnessBar" unique_id=1303166927]
+custom_minimum_size = Vector2(300, 16)
+custom_maximum_size = Vector2(300, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftLine" type="TextureProgressBar" parent="TopBar/RighteousnessBar/RowBar" unique_id=1616478565]
+custom_minimum_size = Vector2(150, 16)
+layout_mode = 2
+max_value = 50.0
+fill_mode = 1
+
+[node name="RightLine" type="TextureProgressBar" parent="TopBar/RighteousnessBar/RowBar" unique_id=505725837]
+custom_minimum_size = Vector2(150, 16)
+layout_mode = 2
+max_value = 50.0
+
+[node name="TopLeftCorner" type="MarginContainer" parent="." unique_id=1910767668]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 102.0
+
+[node name="Column" type="VBoxContainer" parent="TopLeftCorner" unique_id=1245195032]
+layout_mode = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="TopLeftCorner/Column" unique_id=1935088245]
+texture_filter = 1
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+value = 70.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_12dqy")
+texture_over = ExtResource("3_5yj72")
+texture_progress = ExtResource("4_tmbsb")
+script = ExtResource("5_ukfwo")
+metadata/_custom_type_script = "uid://ds51xjokrc2vc"
+
+[node name="Coins" type="PanelContainer" parent="TopLeftCorner/Column" unique_id=86720463]
+custom_maximum_size = Vector2(50, 24)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_ukfwo")
+script = ExtResource("6_wp6mi")
+metadata/_custom_type_script = "uid://dnwllwnieoy0e"
+
+[node name="HContainer" type="HBoxContainer" parent="TopLeftCorner/Column/Coins" unique_id=498315740]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Sprite" type="TextureRect" parent="TopLeftCorner/Column/Coins/HContainer" unique_id=1515650420]
+custom_minimum_size = Vector2(18, 18)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_5yj72")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="TopLeftCorner/Column/Coins/HContainer" unique_id=1303229788]
+custom_minimum_size = Vector2(25, 24)
+custom_maximum_size = Vector2(25, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_tmbsb")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="TopRightCorner" type="MarginContainer" parent="." unique_id=500546858]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -133.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 133.0
+grow_horizontal = 0
+
+[node name="Minimap" type="Control" parent="TopRightCorner" unique_id=1317174955 node_paths=PackedStringArray("grid")]
+texture_filter = 1
+clip_contents = true
+layout_mode = 2
+script = ExtResource("6_12dqy")
+grid = NodePath("Grid")
+metadata/_custom_type_script = "uid://bv05d5sugcr0e"
+
+[node name="Back" type="Sprite2D" parent="TopRightCorner/Minimap" unique_id=2013317048]
+position = Vector2(64, 64)
+texture = ExtResource("6_87a6v")
+
+[node name="Border" type="Sprite2D" parent="TopRightCorner/Minimap" unique_id=2081252831]
+position = Vector2(64, 64)
+texture = ExtResource("7_wp6mi")
+
+[node name="Grid" type="GridContainer" parent="TopRightCorner/Minimap" unique_id=910677721]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_right = 0.025
+offset_left = 0.79999995
+offset_top = 4.0
+offset_right = 120.8
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=103742266]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -29.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Slot" type="PanelContainer" parent="MarginContainer" unique_id=1203889508]
+layout_mode = 2
+script = ExtResource("9_5yj72")
+metadata/_custom_type_script = "uid://bry6hyfe7cvkt"
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Slot" unique_id=1976638528]
+layout_mode = 2

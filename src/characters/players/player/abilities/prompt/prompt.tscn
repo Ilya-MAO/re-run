@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cfyjvd75d3fs1"]
+
+[ext_resource type="Script" uid="uid://dvep1iab3r5ak" path="res://src/characters/players/player/abilities/prompt/prompt.gd" id="1_e85eq"]
+[ext_resource type="FontFile" uid="uid://cco033bincse7" path="res://assets/fonts/VT323.ttf" id="1_gg85t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ilv6"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 0.3647059)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.6117647)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_26ymx"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ippo0"]
+font = ExtResource("1_gg85t")
+font_size = 12
+font_color = Color(0.79624295, 0.796243, 0.7962429, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="Prompt" type="Control" unique_id=654561285]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e85eq")
+metadata/_custom_type_script = "uid://dvep1iab3r5ak"
+
+[node name="Background" type="PanelContainer" parent="." unique_id=449078861]
+custom_maximum_size = Vector2(-1, 100)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 33.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ilv6")
+
+[node name="Label" type="Label" parent="Background" unique_id=919292783]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_26ymx")
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ippo0")
+horizontal_alignment = 1
+vertical_alignment = 1

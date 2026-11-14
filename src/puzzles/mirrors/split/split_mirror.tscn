@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dj6beiekncdc"]
+
+[ext_resource type="PackedScene" uid="uid://bf6hnxfbgmg6p" path="res://src/puzzles/mirrors/mirror/mirror.tscn" id="1_xj270"]
+[ext_resource type="Texture2D" uid="uid://cu5q0mkh2vxyf" path="res://assets/textures/blocks.png" id="2_xj270"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66u2g"]
+atlas = ExtResource("2_xj270")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0fu1"]
+atlas = ExtResource("2_xj270")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfvl6"]
+atlas = ExtResource("2_xj270")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k177"]
+atlas = ExtResource("2_xj270")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmxb2"]
+atlas = ExtResource("2_xj270")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fe5c"]
+atlas = ExtResource("2_xj270")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xj270"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66u2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0fu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfvl6")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k177")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmxb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fe5c")
+}],
+"loop": 1,
+"name": &"passive",
+"speed": 5.0
+}]
+
+[node name="SlashMirror" unique_id=1882829077 instance=ExtResource("1_xj270")]
+scale = Vector2(-1, 1)
+mirror_type = 2
+
+[node name="Shadow" parent="." index="0" unique_id=980502406]
+position = Vector2(0, 18)
+
+[node name="AnimatedSprite" parent="." index="2" unique_id=1831063692]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_xj270")
+animation = &"passive"

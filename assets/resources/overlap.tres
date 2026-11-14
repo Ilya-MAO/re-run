@@ -1,0 +1,11 @@
+[gd_resource type="TileSet" format=3 uid="uid://ct8urc2w25uwh"]
+
+[ext_resource type="PackedScene" uid="uid://c4bfevjcajqft" path="res://src/puzzles/plates/plate/plate.tscn" id="1_era3v"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4dw66"]
+resource_name = "logic"
+scenes/1/scene = ExtResource("1_era3v")
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_4dw66")

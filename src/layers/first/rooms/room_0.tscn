@@ -1,0 +1,138 @@
+[gd_scene format=4 uid="uid://cxjogbus3vpso"]
+
+[ext_resource type="Script" uid="uid://d2hq3357ywnkj" path="res://src/shared/rooms/room/room.gd" id="1_3lm4w"]
+[ext_resource type="Texture2D" uid="uid://3juh8q7cr0gb" path="res://assets/textures/background.png" id="2_3mtr0"]
+[ext_resource type="TileSet" uid="uid://cgxa6mrbgth7s" path="res://assets/resources/logic.tres" id="4_iqr5b"]
+[ext_resource type="Script" uid="uid://co3q535ug310j" path="res://src/shared/tilemaps/tilemaps.gd" id="5_5g058"]
+[ext_resource type="TileSet" uid="uid://c8lsuwepxcwc4" path="res://assets/resources/walls.tres" id="6_krqhc"]
+[ext_resource type="Script" uid="uid://ck3tnvkaqc8dy" path="res://src/puzzles/doors/doors.gd" id="7_3lm4w"]
+[ext_resource type="Script" uid="uid://de2r0m6jkkuvy" path="res://src/shared/tilemaps/logic/logic_tilemap.gd" id="7_kmnor"]
+[ext_resource type="TileSet" uid="uid://dnhh0bcjsf3cw" path="res://assets/resources/blocks.tres" id="7_krqhc"]
+[ext_resource type="PackedScene" uid="uid://cv51gsh2yxfu6" path="res://src/puzzles/doors/spike/spike_door.tscn" id="8_3lm4w"]
+[ext_resource type="TileSet" uid="uid://ct8urc2w25uwh" path="res://assets/resources/overlap.tres" id="8_stil1"]
+[ext_resource type="PackedScene" uid="uid://bxuob1wlux3id" path="res://src/puzzles/doors/door/door.tscn" id="9_3mtr0"]
+[ext_resource type="PackedScene" uid="uid://0jynroibn1ny" path="res://src/shared/items/item/item.tscn" id="9_c0i3j"]
+[ext_resource type="Texture2D" uid="uid://cdug2n4vp8n1r" path="res://assets/textures/items.png" id="10_5g058"]
+[ext_resource type="Script" uid="uid://cs3rkoiv4s1s6" path="res://src/shared/items/item/data/item_data.gd" id="11_300kt"]
+[ext_resource type="PackedScene" uid="uid://bvbaelupuvf6u" path="res://src/puzzles/doors/crystal/crystal_door.tscn" id="11_frykx"]
+
+[sub_resource type="Gradient" id="Gradient_sro6g"]
+colors = PackedColorArray(0.14901961, 0.16470589, 0.21568628, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sro6g"]
+gradient = SubResource("Gradient_sro6g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0i3j"]
+atlas = ExtResource("10_5g058")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_3mtr0"]
+script = ExtResource("11_300kt")
+id = &"rune"
+icon = SubResource("AtlasTexture_c0i3j")
+metadata/_custom_type_script = "uid://cs3rkoiv4s1s6"
+
+[node name="Room_0" type="Node2D" unique_id=1333403551 node_paths=PackedStringArray("doors")]
+script = ExtResource("1_3lm4w")
+doors = NodePath("Doors")
+metadata/_custom_type_script = "uid://d2hq3357ywnkj"
+
+[node name="Background" type="Node2D" parent="." unique_id=1012617524]
+
+[node name="Floor" type="Sprite2D" parent="Background" unique_id=1339912229]
+light_mask = 31
+position = Vector2(512, 288)
+texture = ExtResource("2_3mtr0")
+
+[node name="Light" type="PointLight2D" parent="." unique_id=484334891]
+position = Vector2(511.87503, 288)
+scale = Vector2(16.003906, 9)
+range_item_cull_mask = 31
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+texture = SubResource("GradientTexture2D_sro6g")
+height = 200.0
+
+[node name="Tilemaps" type="Node2D" parent="." unique_id=1967359347]
+z_index = 10
+script = ExtResource("5_5g058")
+walls_crystal_offset_x = 3
+metadata/_custom_type_script = "uid://co3q535ug310j"
+
+[node name="Logic" type="TileMapLayer" parent="Tilemaps" unique_id=1338005231]
+tile_map_data = PackedByteArray("AAAAAAcAAAAAAAAAAGABAAcAAAAAAAAAAGACAAcAAAAAAAAAAGADAAcAAAACAAEAAAADAAYAAAAEAAEAAAADAAUAAAAEAAAAAAAEAAYAAAAAAAAAAGAFAAYAAAAAAAAAAGAGAAYAAAAAAAEAAAAGAAcAAAAEAAAAADACAAYAAAAEAAAAAGASAAMAAQAAAAAAAQATAAQAAQAAAAAAAQATAAMAAQAAAAAAAQASAAQAAQAAAAAAAQAUAAMAAQAAAAAAAQAUAAQAAQAAAAAAAQAWAAMAAQAAAAAAAQAWAAQAAQAAAAAAAQAXAAQAAQAAAAAAAQAXAAMAAQAAAAAAAQAYAAIAAQAAAAAAAQAZAAMAAQAAAAAAAQAYAAQAAQAAAAAAAQAZAAUAAQAAAAAAAQADAAgAAAACAAAAACAAAAMAAAAAAAAAAGABAAMAAAACAAAAAFA=")
+tile_set = ExtResource("4_iqr5b")
+script = ExtResource("7_kmnor")
+metadata/_custom_type_script = "uid://de2r0m6jkkuvy"
+
+[node name="Walls" type="TileMapLayer" parent="Tilemaps" unique_id=1304502818]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAKABEAAAADAAEAACAIABEAAAAEAAEAACAHABEAAAAEAAEAACAGABEAAAADAAEAACAFABEAAAADAAEAACAEABEAAAADAAEAACADABEAAAADAAEAACACABEAAAADAAEAACABABEAAAADAAEAACAAABEAAAAAAAEAAGAAAAsAAAAAAAMAAGAAAAoAAAADAAEAAGAAAAkAAAABAAQAAEAAAAgAAAABAAQAAGAAAAcAAAADAAMAAGAAAAwAAAAAAAMAAGAAAA0AAAAAAAMAAGAAAA4AAAAAAAMAAGAAAA8AAAAAAAMAAGAAABAAAAADAAEAAGAAAAYAAAADAAEAAGAAAAIAAAADAAEAAGAAAAMAAAADAAMAAGAAAAUAAAAAAAMAAGAAAAEAAAADAAEAAGAIAAAAAAACAAIAAAAHAAAAAAACAAIAAAAGAAAAAAACAAIAAAAFAAAAAAACAAIAAAADAAAAAAADAAEAAAACAAAAAAADAAEAAAABAAAAAAADAAEAAAAAAAAAAAABAAEAAAAKAAAAAAAEAAEAAAAJAAAAAAADAAEAAAAPAAAAAAAAAAQAAAAPABEAAAAAAAQAACAQAAAAAAABAAQAAAAQABEAAAABAAQAACAVAAAAAAADAAEAAAAVABEAAAADAAEAACAWAAAAAAADAAEAAAAWABEAAAADAAEAACAXAAAAAAADAAEAAAAXABEAAAADAAEAACAYAAAAAAADAAEAAAAYABEAAAADAAEAACAZAAAAAAADAAEAAAAZABEAAAADAAEAACAaAAAAAAADAAEAAAAaABEAAAADAAEAACAbAAAAAAADAAEAAAAbABEAAAADAAEAACAcAAAAAAADAAEAAAAcABEAAAADAAEAACAdAAAAAAADAAEAAAAdABEAAAADAAEAACAeAAAAAAADAAEAAAAeABEAAAADAAEAACAfAAAAAAAAAAEAAFAfAAEAAAADAAEAAHAfAAIAAAADAAEAAHAfAAMAAAADAAEAAHAfAAQAAAADAAEAAHAfAAUAAAADAAEAAHAfAAYAAAADAAEAAHAfAAcAAAADAAEAAHAfAAgAAAADAAEAAFAfAAkAAAADAAEAAFAfAAoAAAADAAEAAFAfAAsAAAADAAEAAHAfAAwAAAAAAAAAAFAfAA0AAAAAAAAAAFAfAA4AAAAAAAAAAFAfAA8AAAAAAAAAAFAfABAAAAADAAEAAHAfABEAAAACAAEAADALAAAAAAAEAAEAAAAMAAAAAAADAAEAAAARAAAAAAACAAIAAAASAAAAAAADAAEAAAATAAAAAAADAAEAAAAUAAAAAAADAAEAAAARABEAAAADAAEAACASABEAAAADAAEAACATABEAAAADAAEAACAUABEAAAACAAIAACAOABEAAAAEAAEAACANABEAAAAEAAEAACAMABEAAAADAAEAACALABEAAAADAAEAACAJABEAAAADAAEAACANAAAAAAADAAEAAAAOAAAAAAAAAAMAAAAAAAQAAQAAAAAAAWAEAAAAAAACAAIAAAA=")
+tile_set = ExtResource("6_krqhc")
+
+[node name="Blocks" type="TileMapLayer" parent="Tilemaps" unique_id=971220879]
+z_index = 30
+tile_map_data = PackedByteArray("AAAOAAMAAQAAAAAABAAOAAQAAQAAAAAABAALAAYAAAAAAAIAAAAMAAYAAAAAAAIAAAANAAYAAAAAAAMAAAAJAAYAAAAAAAIAAAAIAAYAAAAAAAIAAAAHAAcAAAAAAAIAAAAJAAcAAAAAAAIAAAAJAAgAAAAAAAIAAAAFAAQAAQAAAAAAAwAJAAQAAQAAAAAAAQAFAAkAAQAAAAAAAQAMAAkAAQAAAAAAAgANAAcAAAAAAAIAAAAIAAwAAAAAAAIAAAAJAAwAAAAAAAIAAAAKAAwAAAAAAAMAAAALAAwAAAAAAAMAAAAMAAwAAAAAAAMAAAAHAAwAAAAAAAMAAAA=")
+tile_set = ExtResource("7_krqhc")
+
+[node name="Overlap" type="TileMapLayer" parent="Tilemaps" unique_id=1910113687]
+tile_map_data = PackedByteArray("AAADAAgAAAAAAAAAAQABAAMAAAAAAAAAAWA=")
+tile_set = ExtResource("8_stil1")
+
+[node name="Doors" type="Node2D" parent="." unique_id=529579447 node_paths=PackedStringArray("walls_tilemap", "door_up", "door_down", "door_left", "crystal_door_area")]
+light_mask = 31
+z_index = 10
+script = ExtResource("7_3lm4w")
+walls_tilemap = NodePath("../Tilemaps/Walls")
+door_up = NodePath("Up")
+door_down = NodePath("SpikeDown")
+door_left = NodePath("Left")
+crystal_door_area = NodePath("CrystalRight")
+metadata/_custom_type_script = "uid://ck3tnvkaqc8dy"
+
+[node name="CrystalRight" parent="Doors" unique_id=281754802 instance=ExtResource("11_frykx")]
+position = Vector2(1010, 0)
+rotation = 1.5707964
+direction = 3
+
+[node name="Up" parent="Doors" unique_id=2039826713 instance=ExtResource("9_3mtr0")]
+position = Vector2(512, 13)
+
+[node name="SpikeDown" parent="Doors" unique_id=1741113674 instance=ExtResource("8_3lm4w")]
+position = Vector2(512, 563)
+rotation = 3.1415927
+
+[node name="Left" parent="Doors" unique_id=758971647 instance=ExtResource("9_3mtr0")]
+position = Vector2(13, 288)
+rotation = 4.712389
+
+[node name="Items" type="Node2D" parent="." unique_id=1982672671]
+z_index = 10
+
+[node name="Item1" parent="Items" unique_id=1416428836 instance=ExtResource("9_c0i3j")]
+position = Vector2(583, 233)
+item_data = SubResource("Resource_3mtr0")
+
+[node name="Item2" parent="Items" unique_id=580758884 instance=ExtResource("9_c0i3j")]
+position = Vector2(576, 235)
+item_data = SubResource("Resource_3mtr0")
+
+[node name="Item3" parent="Items" unique_id=991541687 instance=ExtResource("9_c0i3j")]
+position = Vector2(583, 241)
+item_data = SubResource("Resource_3mtr0")
+
+[node name="Item4" parent="Items" unique_id=593753944 instance=ExtResource("9_c0i3j")]
+position = Vector2(49, 112)
+item_data = SubResource("Resource_3mtr0")
+
+[node name="Item5" parent="Items" unique_id=1739793723 instance=ExtResource("9_c0i3j")]
+position = Vector2(583, 239)
+item_data = SubResource("Resource_3mtr0")
+
+[node name="Item6" parent="Items" unique_id=230527644 instance=ExtResource("9_c0i3j")]
+position = Vector2(912, 459)
+item_data = SubResource("Resource_3mtr0")

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c5ueft8s03f2i"]
+
+[ext_resource type="Script" uid="uid://dcgq83xnd5k1" path="res://src/puzzles/traps/floor/floor_trap.gd" id="1_7uqqs"]
+[ext_resource type="Texture2D" uid="uid://daxetnsxooe3e" path="res://assets/textures/logic.png" id="2_7uqqs"]
+[ext_resource type="Script" uid="uid://36jqmyn8o14b" path="res://src/shared/areas/attack/attack_area.gd" id="3_x8t4a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmfad"]
+atlas = ExtResource("2_7uqqs")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8t4a"]
+atlas = ExtResource("2_7uqqs")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2r2fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmfad")
+}],
+"loop": 1,
+"name": &"holes",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8t4a")
+}],
+"loop": 1,
+"name": &"spikes",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r2fx"]
+size = Vector2(24, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i7vg"]
+size = Vector2(24, 26)
+
+[node name="Trap" type="Area2D" unique_id=207596551]
+collision_mask = 2
+script = ExtResource("1_7uqqs")
+metadata/_custom_type_script = "uid://dcgq83xnd5k1"
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1828299754]
+sprite_frames = SubResource("SpriteFrames_2r2fx")
+animation = &"holes"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=518470797]
+shape = SubResource("RectangleShape2D_2r2fx")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1688999506]
+collision_mask = 2
+script = ExtResource("3_x8t4a")
+metadata/_custom_type_script = "uid://36jqmyn8o14b"
+
+[node name="Collision" type="CollisionShape2D" parent="AttackArea" unique_id=1230479733]
+shape = SubResource("RectangleShape2D_6i7vg")
+
+[node name="DelayTimer" type="Timer" parent="." unique_id=778898976]
+wait_time = 0.75
+one_shot = true

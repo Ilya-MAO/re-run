@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://typ7s8dcn4om"]
+
+[ext_resource type="Script" uid="uid://ecg8uikk8ee7" path="res://src/puzzles/lasers/emitter/laser_emitter.gd" id="1_fcnvy"]
+[ext_resource type="Texture2D" uid="uid://b76pi6h2vd2n2" path="res://assets/textures/walls.png" id="2_ua7hn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxout"]
+atlas = ExtResource("2_ua7hn")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcnvy"]
+size = Vector2(32, 19.786621)
+
+[node name="LaserEmitter" type="Node2D" unique_id=260546274]
+script = ExtResource("1_fcnvy")
+metadata/_custom_type_script = "uid://ecg8uikk8ee7"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=282283257]
+texture = SubResource("AtlasTexture_lxout")
+
+[node name="RayCast" type="RayCast2D" parent="." unique_id=970601778]
+enabled = false
+collision_mask = 16
+
+[node name="Beams" type="Node2D" parent="." unique_id=938284337]
+
+[node name="PhysicArea" type="StaticBody2D" parent="." unique_id=1928243420]
+collision_mask = 47
+
+[node name="Collision" type="CollisionShape2D" parent="PhysicArea" unique_id=315082764]
+position = Vector2(0, -5.1066895)
+shape = SubResource("RectangleShape2D_fcnvy")

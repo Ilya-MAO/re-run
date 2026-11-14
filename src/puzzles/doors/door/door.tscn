@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bxuob1wlux3id"]
+
+[ext_resource type="Script" uid="uid://mgkglyxbyl7v" path="res://src/puzzles/doors/door/door.gd" id="1_6xgjj"]
+[ext_resource type="Texture2D" uid="uid://b1c57ipwtcpsm" path="res://assets/textures/elements.png" id="1_h36dh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p767h"]
+atlas = ExtResource("1_h36dh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p767h"]
+size = Vector2(31.75, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h36dh"]
+size = Vector2(32, 18)
+
+[node name="Door" type="Area2D" unique_id=938399330]
+collision_mask = 2
+script = ExtResource("1_6xgjj")
+metadata/_custom_type_script = "uid://mgkglyxbyl7v"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1142409267]
+position = Vector2(0, 5)
+texture = SubResource("AtlasTexture_p767h")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1863962342]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_p767h")
+
+[node name="PhysicArea" type="StaticBody2D" parent="." unique_id=39797174]
+collision_mask = 46
+
+[node name="Collision" type="CollisionShape2D" parent="PhysicArea" unique_id=2020634988]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_h36dh")

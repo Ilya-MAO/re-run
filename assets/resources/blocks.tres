@@ -1,0 +1,113 @@
+[gd_resource type="TileSet" format=3 uid="uid://dnhh0bcjsf3cw"]
+
+[ext_resource type="Texture2D" uid="uid://cu5q0mkh2vxyf" path="res://assets/textures/blocks.png" id="1_g2ab3"]
+[ext_resource type="Material" uid="uid://ccngvl7rh33s5" path="res://assets/resources/unshaded.tres" id="1_rswuc"]
+[ext_resource type="PackedScene" uid="uid://s4lbuuiektcr" path="res://src/puzzles/mirrors/reflect_backslash/reflect_backslash_mirror.tscn" id="2_7khq6"]
+[ext_resource type="PackedScene" uid="uid://s40jctnf0qti" path="res://src/puzzles/mirrors/reflect_slash/reflect_slash_mirror.tscn" id="3_ybmv7"]
+[ext_resource type="PackedScene" uid="uid://dj6beiekncdc" path="res://src/puzzles/mirrors/split/split_mirror.tscn" id="4_rswuc"]
+[ext_resource type="PackedScene" uid="uid://54f5igjppsuq" path="res://src/puzzles/rocks/spike/spike_rock.tscn" id="5_ybmv7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16plk"]
+texture = ExtResource("1_g2ab3")
+texture_region_size = Vector2i(32, 32)
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/animation_mode = 1
+0:2/animation_frame_0/duration = 0.33
+0:2/animation_frame_1/duration = 0.33
+0:2/animation_frame_2/duration = 0.33
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0/custom_data_0 = true
+3:2/animation_mode = 1
+3:2/animation_frame_0/duration = 0.33
+3:2/animation_frame_1/duration = 0.33
+3:2/animation_frame_2/duration = 0.33
+3:2/0 = 0
+3:2/0/material = ExtResource("1_rswuc")
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0/custom_data_0 = true
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t0o1u"]
+resource_name = "custom"
+scenes/1/scene = ExtResource("2_7khq6")
+scenes/2/scene = ExtResource("3_ybmv7")
+scenes/3/scene = ExtResource("4_rswuc")
+scenes/4/scene = ExtResource("5_ybmv7")
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 62
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 0
+custom_data_layer_0/name = "is_crystal"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_16plk")
+sources/1 = SubResource("TileSetScenesCollectionSource_t0o1u")

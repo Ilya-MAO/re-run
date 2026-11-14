@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bf6hnxfbgmg6p"]
+
+[ext_resource type="Script" uid="uid://dn7qd8vogyp0t" path="res://src/puzzles/mirrors/mirror/mirror.gd" id="1_n3b2m"]
+
+[sub_resource type="Gradient" id="Gradient_4oa5g"]
+colors = PackedColorArray(0.16470589, 0.18039216, 0.23529412, 0.6392157, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n3b2m"]
+gradient = SubResource("Gradient_4oa5g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmm27"]
+size = Vector2(26, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmm27"]
+
+[node name="Mirror" type="AnimatableBody2D" unique_id=767390807]
+collision_layer = 17
+collision_mask = 46
+script = ExtResource("1_n3b2m")
+active_color = Color(0.6890411, 1.2938297, 1.5720325, 1)
+metadata/_custom_type_script = "uid://dn7qd8vogyp0t"
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=980502406]
+visible = false
+position = Vector2(0, 17)
+scale = Vector2(0.54418945, 0.19873048)
+texture = SubResource("GradientTexture2D_n3b2m")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1724251655]
+shape = SubResource("RectangleShape2D_xmm27")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1831063692]
+sprite_frames = SubResource("SpriteFrames_xmm27")

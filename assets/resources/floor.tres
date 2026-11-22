@@ -1,0 +1,38 @@
+[gd_resource type="TileSet" format=3 uid="uid://86qomhqenqqb"]
+
+[ext_resource type="Texture2D" uid="uid://bxcfgn3aeloal" path="res://assets/textures/floor.png" id="1_vtlab"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_wku0v"]
+tile_data = PackedInt32Array(0, 196608, 0, 65536, 196608, 0, 131072, 196608, 0, 196608, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 131073, 196608, 0, 196609, 196608, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_vtlab"]
+tile_data = PackedInt32Array(0, 196608, 0, 65536, 0, 0, 131072, 0, 1, 1, 196608, 0, 65537, 0, 0, 131073, 0, 1, 2, 196608, 0, 65538, 0, 0, 131074, 0, 1, 3, 196608, 0, 65539, 196608, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_yukmi"]
+tile_data = PackedInt32Array(0, 196608, 0, 65536, 196608, 0, 1, 196608, 0, 65537, 0, 0, 131073, 0, 1, 2, 196608, 0, 65538, 0, 0, 131074, 0, 1, 3, 196608, 0, 65539, 0, 0, 131075, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dajb"]
+texture = ExtResource("1_vtlab")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_4dajb")
+pattern_0 = SubResource("TileMapPattern_wku0v")
+pattern_1 = SubResource("TileMapPattern_vtlab")
+pattern_2 = SubResource("TileMapPattern_yukmi")

@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://ccdapnox6fslb"]
 
-[ext_resource type="Script" uid="uid://dvstto5aqpdtn" path="res://src/core/room_generator/room_generator.gd" id="1_k2mmb"]
+[ext_resource type="Script" uid="uid://dvstto5aqpdtn" path="res://src/core/platform_generator.gd" id="1_k2mmb"]
 [ext_resource type="PackedScene" uid="uid://6crdfhvqxmy7" path="res://src/ui/hud.tscn" id="2_mx4f5"]
-[ext_resource type="PackedScene" uid="uid://b07d37iyhbgwu" path="res://src/characters/players/soul/soul.tscn" id="3_8j846"]
-[ext_resource type="PackedScene" uid="uid://cxjogbus3vpso" path="res://src/layers/first/rooms/room_0.tscn" id="4_8j846"]
+[ext_resource type="PackedScene" uid="uid://doxyqmi76pq3i" path="res://src/characters/players/test/test_player.tscn" id="3_8j846"]
 
 [sub_resource type="Environment" id="Environment_8j846"]
 background_mode = 3
@@ -19,11 +18,11 @@ glow_hdr_threshold = 1.05
 
 [node name="CoreScene" type="Node2D" unique_id=2042499300]
 
-[node name="RoomGenerator" type="Node2D" parent="." unique_id=415245935]
+[node name="PlatformGenerator" type="Node2D" parent="." unique_id=1903775400]
 script = ExtResource("1_k2mmb")
-Hud = ExtResource("2_mx4f5")
-Player = ExtResource("3_8j846")
-StartRoom = ExtResource("4_8j846")
+hud_scene = ExtResource("2_mx4f5")
+player_scene = ExtResource("3_8j846")
+platforms_dir = "res://src/platforms"
 metadata/_custom_type_script = "uid://dvstto5aqpdtn"
 
 [node name="Darker" type="CanvasModulate" parent="." unique_id=847692049]

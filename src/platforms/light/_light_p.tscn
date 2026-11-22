@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dvqycwdu4cr7q"]
+
+[ext_resource type="PackedScene" uid="uid://cwkr4f1qgr23a" path="res://src/platforms/platform/platform.tscn" id="1_qnjts"]
+[ext_resource type="TileSet" uid="uid://cgxa6mrbgth7s" path="res://assets/resources/logic.tres" id="2_7gohs"]
+[ext_resource type="TileSet" uid="uid://dnhh0bcjsf3cw" path="res://assets/resources/blocks.tres" id="3_33jp8"]
+[ext_resource type="PackedScene" uid="uid://0jynroibn1ny" path="res://src/shared/items/item/item.tscn" id="4_r1ej1"]
+[ext_resource type="Texture2D" uid="uid://db175tpv4c4ej" path="res://assets/textures/items.png" id="5_6y8hu"]
+[ext_resource type="Script" uid="uid://cs3rkoiv4s1s6" path="res://src/shared/items/item/item_data.gd" id="6_ihdfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko5ih"]
+atlas = ExtResource("5_6y8hu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_fm3ei"]
+script = ExtResource("6_ihdfm")
+id = &"rune"
+icon = SubResource("AtlasTexture_ko5ih")
+metadata/_custom_type_script = "uid://cs3rkoiv4s1s6"
+
+[node name="Platform" unique_id=1333403551 instance=ExtResource("1_qnjts")]
+type = 2
+
+[node name="Logic" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(302260885) index="4" unique_id=2005295460]
+tile_set = ExtResource("2_7gohs")
+
+[node name="Blocks" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(302260885) index="5" unique_id=351508386]
+z_as_relative = false
+tile_set = ExtResource("3_33jp8")
+
+[node name="Items" type="Node2D" parent="." index="3" unique_id=173471860]
+
+[node name="Item" parent="Items" index="0" unique_id=580758884 instance=ExtResource("4_r1ej1")]
+position = Vector2(166, 67)
+item_data = SubResource("Resource_fm3ei")

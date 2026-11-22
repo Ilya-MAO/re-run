@@ -1,0 +1,24 @@
+[gd_scene format=4 uid="uid://btmlho8j263md"]
+
+[ext_resource type="PackedScene" uid="uid://cwkr4f1qgr23a" path="res://src/platforms/platform/platform.tscn" id="1_532ir"]
+[ext_resource type="TileSet" uid="uid://cgxa6mrbgth7s" path="res://assets/resources/logic.tres" id="2_1smwe"]
+[ext_resource type="TileSet" uid="uid://cynqjxld0v8e3" path="res://assets/resources/connectors.tres" id="2_o7rfq"]
+[ext_resource type="TileSet" uid="uid://dnhh0bcjsf3cw" path="res://assets/resources/blocks.tres" id="3_ycl1m"]
+[ext_resource type="Script" uid="uid://de2r0m6jkkuvy" path="res://src/shared/tilemaps/connectors_tilemap.gd" id="4_7h3k2"]
+
+[node name="Platform" unique_id=1333403551 instance=ExtResource("1_532ir")]
+
+[node name="Connectors" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(302260885) index="4" unique_id=386712408]
+tile_map_data = PackedByteArray("AAAQAAcAAAAAAAQAAFAPAAcAAAAAAAQAAGA=")
+tile_set = ExtResource("2_o7rfq")
+script = ExtResource("4_7h3k2")
+metadata/_custom_type_script = "uid://de2r0m6jkkuvy"
+
+[node name="Logic" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(302260885) index="5" unique_id=573564515]
+position = Vector2(1, 0)
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAEAAAAPAAUAAAAAAAIAAAAAAAAAAQAAAAAAAQAAAAEAAQAAAAAAAQABAAEAAQAAAAAAAQABAAAAAQAAAAAAAQAPAAAAAQAAAAAAAQAOAAAAAQAAAAAAAQAOAAEAAQAAAAAAAQAPAAEAAQAAAAAAAQAPAAYAAQAAAAAAAQAOAAYAAQAAAAAAAQAOAAcAAQAAAAAAAQAPAAcAAQAAAAAAAQABAAYAAQAAAAAAAQAAAAYAAQAAAAAAAQAAAAcAAQAAAAAAAQABAAcAAQAAAAAAAQAIAAMAAAAAAAMAAAA=")
+tile_set = ExtResource("2_1smwe")
+
+[node name="Blocks" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(302260885) index="6" unique_id=817979480]
+tile_map_data = PackedByteArray("AAAHAAMAAgAAAAAAAQAMAAYAAQAAAAAAAgADAAYAAQAAAAAAAQADAAEAAQAAAAAAAgAMAAEAAQAAAAAAAQA=")
+tile_set = ExtResource("3_ycl1m")

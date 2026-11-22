@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://doxyqmi76pq3i"]
+
+[ext_resource type="PackedScene" uid="uid://uu3vhi7jw568" path="res://src/characters/character/character.tscn" id="1_n1m0r"]
+[ext_resource type="Script" uid="uid://vlce33jy5xl5" path="res://src/characters/players/test/test_player.gd" id="2_hmmoj"]
+[ext_resource type="Script" uid="uid://bkylyursk8jcd" path="res://src/characters/entities/souls/soul/soul_data.gd" id="3_8vfkr"]
+[ext_resource type="Script" uid="uid://lbvwbdoc327j" path="res://src/characters/players/player/player_data.gd" id="3_bbyph"]
+[ext_resource type="Texture2D" uid="uid://dqwdo1s4t6gl3" path="res://assets/textures/characters/test_player.png" id="3_rb17t"]
+[ext_resource type="Script" uid="uid://si6v52b2t3i4" path="res://src/characters/players/player/inventory/item_slot.gd" id="4_4e4tq"]
+[ext_resource type="PackedScene" uid="uid://cfyjvd75d3fs1" path="res://src/characters/players/player/abilities/prompt/prompt.tscn" id="5_8xnl4"]
+[ext_resource type="Script" uid="uid://bsn05otmk5xqs" path="res://src/shared/areas/interact_area.gd" id="6_0jsud"]
+[ext_resource type="FontFile" uid="uid://cco033bincse7" path="res://assets/fonts/VT323.ttf" id="6_midgp"]
+[ext_resource type="Script" uid="uid://c7a5fyn7boql" path="res://src/characters/players/player/abilities/telekinesis.gd" id="8_0p004"]
+
+[sub_resource type="Resource" id="Resource_rb17t"]
+script = ExtResource("3_8vfkr")
+metadata/_custom_type_script = "uid://bkylyursk8jcd"
+
+[sub_resource type="Resource" id="Resource_pll6j"]
+script = ExtResource("3_bbyph")
+metadata/_custom_type_script = "uid://lbvwbdoc327j"
+
+[sub_resource type="Animation" id="Animation_12dc0"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rqjc"]
+_data = {
+&"RESET": SubResource("Animation_12dc0")
+}
+
+[sub_resource type="Animation" id="Animation_rb17t"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(1, 1), Vector2i(1, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_bbyph"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_8vfkr"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 0), Vector2i(2, 1), Vector2i(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_vjbyp"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(3, 0), Vector2i(3, 1), Vector2i(3, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_12dc0"]
+_data = {
+&"down": SubResource("Animation_rb17t"),
+&"left": SubResource("Animation_bbyph"),
+&"right": SubResource("Animation_8vfkr"),
+&"up": SubResource("Animation_vjbyp")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rb17t"]
+animation = &"walk/right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbyph"]
+animation = &"walk/up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8vfkr"]
+animation = &"walk/left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vjbyp"]
+animation = &"walk/down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_rb17t"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_rb17t")
+blend_point_0/pos = Vector2(0.4, 0)
+blend_point_0/name = &"walk_right"
+blend_point_1/node = SubResource("AnimationNodeAnimation_bbyph")
+blend_point_1/pos = Vector2(0, -0.4)
+blend_point_1/name = &"walk_up"
+blend_point_2/node = SubResource("AnimationNodeAnimation_8vfkr")
+blend_point_2/pos = Vector2(-0.4, 0)
+blend_point_2/name = &"walk_left"
+blend_point_3/node = SubResource("AnimationNodeAnimation_vjbyp")
+blend_point_3/pos = Vector2(0, 0.4)
+blend_point_3/name = &"walk_down"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo8cc"]
+radius = 26.0
+height = 52.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wvek1"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukisl"]
+font = ExtResource("6_midgp")
+font_size = 18
+font_color = Color(1, 0.4219753, 0.14583546, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TestPlayer" unique_id=287483390 node_paths=PackedStringArray("shadow_node") instance=ExtResource("1_n1m0r")]
+z_index = 5
+collision_mask = 25
+script = ExtResource("2_hmmoj")
+coins = 20
+float_data = SubResource("Resource_rb17t")
+shadow_node = NodePath("Shadow")
+min_shadow_scale = 0.7
+character_data = SubResource("Resource_pll6j")
+
+[node name="Shadow" parent="." index="0" unique_id=1956476694]
+unique_name_in_owner = true
+
+[node name="Sprite" parent="." index="1" unique_id=135302840]
+texture = ExtResource("3_rb17t")
+vframes = 3
+frame = 1
+
+[node name="Player" parent="Animation" parent_id_path=PackedInt32Array(39369589) index="0" unique_id=1304391600]
+libraries/ = SubResource("AnimationLibrary_8rqjc")
+libraries/walk = SubResource("AnimationLibrary_12dc0")
+
+[node name="Tree" parent="Animation" parent_id_path=PackedInt32Array(39369589) index="1" unique_id=23880611]
+tree_root = SubResource("AnimationNodeBlendSpace2D_rb17t")
+parameters/blend_position = Vector2(0.0024410486, -0.7771429)
+
+[node name="Collision" parent="." index="3" unique_id=1881681503]
+position = Vector2(0, 17)
+
+[node name="InteractArea" type="Area2D" parent="." index="4" unique_id=1265788846]
+unique_name_in_owner = true
+collision_layer = 0
+script = ExtResource("6_0jsud")
+metadata/_custom_type_script = "uid://bsn05otmk5xqs"
+
+[node name="Collision" type="CollisionShape2D" parent="InteractArea" index="0" unique_id=619968502]
+position = Vector2(0, 17)
+shape = SubResource("CapsuleShape2D_bo8cc")
+
+[node name="ItemSlot" type="Node2D" parent="." index="5" unique_id=1747464670]
+unique_name_in_owner = true
+script = ExtResource("4_4e4tq")
+metadata/_custom_type_script = "uid://si6v52b2t3i4"
+
+[node name="Telekinesis" type="Node2D" parent="." index="6" unique_id=209737736]
+unique_name_in_owner = true
+script = ExtResource("8_0p004")
+metadata/_custom_type_script = "uid://c7a5fyn7boql"
+
+[node name="Camera" type="Camera2D" parent="." index="7" unique_id=1797095890]
+
+[node name="Prompt" parent="." index="8" unique_id=654561285 instance=ExtResource("5_8xnl4")]
+unique_name_in_owner = true
+
+[node name="AlertLabel" type="Label" parent="." index="9" unique_id=272884458]
+unique_name_in_owner = true
+visible = false
+material = SubResource("CanvasItemMaterial_wvek1")
+offset_left = 15.0
+offset_top = -34.0
+offset_right = 24.0
+offset_bottom = -15.0
+text = "!"
+label_settings = SubResource("LabelSettings_ukisl")

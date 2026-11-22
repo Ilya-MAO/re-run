@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dfs26jpc6ifqj"]
+
+[ext_resource type="Script" uid="uid://dpkg0cmsub7v0" path="res://src/puzzles/lasers/slit/laser_slit.gd" id="1_57ynr"]
+[ext_resource type="Texture2D" uid="uid://b76pi6h2vd2n2" path="res://assets/textures/walls.png" id="1_t0tgv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx5rs"]
+atlas = ExtResource("1_t0tgv")
+region = Rect2(0, 64, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ynr"]
+atlas = ExtResource("1_t0tgv")
+region = Rect2(0, 76, 32, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0tgv"]
+size = Vector2(32, 20)
+
+[node name="LaserSlit" type="StaticBody2D" unique_id=161085708]
+collision_layer = 5
+collision_mask = 0
+script = ExtResource("1_57ynr")
+metadata/_custom_type_script = "uid://dpkg0cmsub7v0"
+
+[node name="SpriteUp" type="Sprite2D" parent="." unique_id=142318158]
+z_index = 310
+texture_filter = 1
+position = Vector2(0, -10)
+texture = SubResource("AtlasTexture_fx5rs")
+
+[node name="SpriteDown" type="Sprite2D" parent="." unique_id=114098165]
+z_index = 290
+texture_filter = 1
+texture = SubResource("AtlasTexture_57ynr")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=886137246]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_t0tgv")

@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" format=3 uid="uid://cynqjxld0v8e3"]
+
+[ext_resource type="Texture2D" uid="uid://b61p8dqcbllmv" path="res://assets/textures/connectors.png" id="1_w8c6a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_116oe"]
+texture = ExtResource("1_w8c6a")
+0:0/0 = 0
+0:0/0/custom_data_0 = 5
+3:0/0 = 0
+3:0/0/custom_data_0 = 5
+0:1/0 = 0
+0:1/0/custom_data_0 = 6
+3:1/0 = 0
+3:1/0/custom_data_0 = 6
+0:2/0 = 0
+0:2/0/custom_data_0 = 7
+3:2/0 = 0
+3:2/0/custom_data_0 = 7
+0:3/0 = 0
+0:3/0/custom_data_0 = 15
+3:3/0 = 0
+3:3/0/custom_data_0 = 15
+0:4/0 = 0
+0:4/0/custom_data_0 = 4
+3:4/0 = 0
+3:4/0/custom_data_0 = 4
+
+[resource]
+custom_data_layer_0/name = "connect_mask"
+custom_data_layer_0/type = 2
+sources/0 = SubResource("TileSetAtlasSource_116oe")

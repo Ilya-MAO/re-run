@@ -16,11 +16,10 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=576
+window/size/viewport_width=624
+window/size/viewport_height=352
 window/size/mode=3
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -30,10 +29,19 @@ project/assembly_name="RE-RUN"
 
 enabled=PackedStringArray("res://addons/godot_vim/plugin.cfg")
 
-[global_group]
+[file_customization]
 
-Enemies=""
-Players=""
+folder_colors={
+"res://src/characters/": "green",
+"res://src/characters/character/": "gray",
+"res://src/characters/entities/souls/soul/": "gray",
+"res://src/characters/players/player/": "gray",
+"res://src/core/": "red",
+"res://src/platforms/": "yellow",
+"res://src/platforms/platform/": "gray",
+"res://src/puzzles/mirrors/mirror/": "gray",
+"res://src/ui/": "blue"
+}
 
 [input]
 
@@ -87,12 +95,11 @@ drop_item={
 2d_render/layer_4="Friends"
 2d_render/layer_5="Logic"
 2d_render/layer_6="Items"
-2d_physics/layer_1="World"
-2d_physics/layer_2="Players"
-2d_physics/layer_3="Enemies"
-2d_physics/layer_4="Friends"
-2d_physics/layer_5="Lazer"
-2d_physics/layer_6="Items"
+2d_physics/layer_1="Physic"
+2d_physics/layer_2="Logic"
+2d_physics/layer_3="Items"
+2d_physics/layer_4="Players"
+2d_physics/layer_5="Entities"
 
 [physics]
 

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://uu3vhi7jw568"]
+
+[ext_resource type="Script" uid="uid://c8jfage3r5484" path="res://src/characters/character/character.gd" id="1_wlqwk"]
+
+[sub_resource type="Gradient" id="Gradient_midgp"]
+colors = PackedColorArray(0.16470589, 0.18039216, 0.23529412, 0.6392157, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_42qac"]
+gradient = SubResource("Gradient_midgp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wlqwk"]
+radius = 8.0
+height = 28.0
+
+[node name="Character" type="CharacterBody2D" unique_id=287483390]
+collision_layer = 8
+script = ExtResource("1_wlqwk")
+metadata/_custom_type_script = "uid://c8jfage3r5484"
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1956476694]
+z_index = 1
+z_as_relative = false
+position = Vector2(0, 23)
+scale = Vector2(0.24731447, 0.16687012)
+texture = SubResource("GradientTexture2D_42qac")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=135302840]
+unique_name_in_owner = true
+texture_filter = 1
+hframes = 4
+vframes = 5
+
+[node name="Animation" type="Node2D" parent="." unique_id=39369589]
+
+[node name="Player" type="AnimationPlayer" parent="Animation" unique_id=1304391600]
+
+[node name="Tree" type="AnimationTree" parent="Animation" unique_id=23880611]
+unique_name_in_owner = true
+root_node = NodePath("%Tree/..")
+anim_player = NodePath("../Player")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1881681503]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_wlqwk")

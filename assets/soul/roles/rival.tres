@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoulRole" format=3 uid="uid://fvh5ugcrhba5"]
+
+[ext_resource type="Script" uid="uid://bb8pn68ex4p38" path="res://src/characters/entities/souls/soul/soul_role.gd" id="1_ojae5"]
+
+[resource]
+script = ExtResource("1_ojae5")
+role_id = &"rival"
+role_name = "Суперник"
+friends_count = 0
+metadata/_custom_type_script = "uid://bb8pn68ex4p38"

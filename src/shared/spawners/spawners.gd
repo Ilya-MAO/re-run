@@ -1,29 +1,56 @@
 class_name Spawners
-extends Node
+extends Node2D
 
-signal all_enemies_died
+signal soul_died
+
+@export var default_soul_scenes: Array[PackedScene] = []
+
+var spawned_soul: Soul = null
+var _has_spawned: bool = false
 
 
-var entities: Array[Character] = []
+func can_spawn_soul() -> bool:
+	if _has_spawned:
+		return false
+	return not _get_valid_spawners().is_empty()
 
 
-func spawn() -> void:
-	for spawner in get_children():
-		if spawner is not Spawner: continue
+func spawn_soul(assigned_role: SoulRole, link_id: int) -> Soul:
+	if not can_spawn_soul():
+		return null
 
-		var entity: Character = spawner.spawn()
-		if not entity: continue
+	var valid_spawners: Array[Spawner] = _get_valid_spawners()
+	var spawner: Spawner = valid_spawners.pick_random()
 
-		entity.died.connect(_on_entity_died.bind(entity))
-		entities.append(entity)
-		get_parent().add_child(entity)
+	var soul: Soul = spawner.spawn_soul(default_soul_scenes)
+	if not soul:
+		return null
+
+	_has_spawned = true
+	spawned_soul = soul
+
+	get_parent().add_child(soul)
+	soul.global_position = spawner.global_position
+	soul.assign_role(assigned_role, link_id)
+	soul.died.connect(_on_soul_died)
+
+	return soul
+
 
 #region Helpers
 
-func _on_entity_died(enemy: Character) -> void:
-	entities.erase(enemy)
-	enemy.queue_free()
+func _get_valid_spawners() -> Array[Spawner]:
+	var result: Array[Spawner] = []
+	for child in get_children():
+		if child is Spawner and child.has_scenes(default_soul_scenes):
+			result.append(child)
+	return result
 
-	if entities.is_empty(): all_enemies_died.emit()
+
+func _on_soul_died() -> void:
+	if is_instance_valid(spawned_soul):
+		spawned_soul.queue_free()
+	spawned_soul = null
+	soul_died.emit()
 
 #endregion

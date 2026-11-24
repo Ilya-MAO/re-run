@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://beclytbc0usrx" path="res://assets/textures/characters/soul_a.png" id="3_1liq0"]
 [ext_resource type="Script" uid="uid://bkylyursk8jcd" path="res://src/characters/entities/souls/soul/soul_data.gd" id="3_2d1ns"]
 [ext_resource type="Script" uid="uid://36jqmyn8o14b" path="res://src/shared/areas/attack_area.gd" id="3_kjotc"]
+[ext_resource type="Resource" uid="uid://cpuoj8xpnvoab" path="res://assets/soul/dialogues/pirate_dialogue.tres" id="4_2d1ns"]
 
 [sub_resource type="Resource" id="Resource_1liq0"]
 script = ExtResource("3_2d1ns")
@@ -129,8 +130,13 @@ radius = 8.0
 height = 22.0
 
 [node name="SoulA" unique_id=287483390 instance=ExtResource("1_77v0e")]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("2_1liq0")
 float_data = SubResource("Resource_1liq0")
+min_shadow_scale = 0.7
+soul_name = "Пірат"
+soul_dialogue = ExtResource("4_2d1ns")
 
 [node name="Shadow" parent="." index="0" unique_id=1956476694]
 position = Vector2(0, 20)
@@ -149,8 +155,8 @@ parameters/blend_position = Vector2(0.004061699, -1.0114286)
 
 [node name="AttackArea" type="Area2D" parent="." index="4" unique_id=168436091]
 visible = false
-collision_layer = 32
-collision_mask = 48
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("3_kjotc")
 metadata/_custom_type_script = "uid://36jqmyn8o14b"
 

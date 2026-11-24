@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SoulDialogue" format=3 uid="uid://cpuoj8xpnvoab"]
+
+[ext_resource type="Script" uid="uid://1jkbr5tmc2rt" path="res://src/characters/entities/souls/soul/dialogue/dialogue_line.gd" id="1_tq7xl"]
+[ext_resource type="Script" uid="uid://c6sm6f0532hr6" path="res://src/characters/entities/souls/soul/dialogue/role_dialogue_entry.gd" id="2_asrf5"]
+[ext_resource type="Script" uid="uid://diqc8fjffstwf" path="res://src/characters/entities/souls/soul/dialogue/dialogue_choice.gd" id="3_asrf5"]
+[ext_resource type="Script" uid="uid://baiix3xn8kae0" path="res://src/characters/entities/souls/soul/dialogue/soul_dialogue.gd" id="3_gq2ys"]
+
+[sub_resource type="Resource" id="Resource_71wfx"]
+script = ExtResource("3_asrf5")
+choice_text = "Норм"
+metadata/_custom_type_script = "uid://diqc8fjffstwf"
+
+[sub_resource type="Resource" id="Resource_2d1ns"]
+script = ExtResource("1_tq7xl")
+text = "Привіт. Як справи?"
+choices = Array[ExtResource("3_asrf5")]([SubResource("Resource_71wfx")])
+metadata/_custom_type_script = "uid://1jkbr5tmc2rt"
+
+[sub_resource type="Resource" id="Resource_hj58s"]
+script = ExtResource("2_asrf5")
+role_id = &"rival"
+lines = Array[ExtResource("1_tq7xl")]([SubResource("Resource_2d1ns")])
+metadata/_custom_type_script = "uid://c6sm6f0532hr6"
+
+[resource]
+script = ExtResource("3_gq2ys")
+character_name = "Пірат"
+role_entries = Array[ExtResource("2_asrf5")]([SubResource("Resource_hj58s")])
+metadata/_custom_type_script = "uid://baiix3xn8kae0"

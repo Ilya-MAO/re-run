@@ -19,9 +19,13 @@ class Target:
 	var tilemap: TileMapLayer
 	var cell: Vector2i = NONE_CELL
 	var slot_type: String
+	var soul: Soul
 
-	func _init(p_tilemap: TileMapLayer = null, p_cell: Vector2i = NONE_CELL, p_slot_type: String = "") -> void:
-		tilemap = p_tilemap; cell = p_cell; slot_type = p_slot_type
+	func _init(p_tilemap: TileMapLayer = null, p_cell: Vector2i = NONE_CELL, p_slot_type: String = "", p_soul: Soul = null) -> void:
+		tilemap = p_tilemap
+		cell = p_cell
+		slot_type = p_slot_type
+		soul = p_soul
 
 #endregion
 
@@ -31,7 +35,20 @@ var _current_target: Target
 #region Specials
 
 func _physics_process(_delta: float) -> void:
+	# Якщо діалог уже відкритий — ховаємо підказку і не шукаємо цілі
+	var dialogue_ui := get_tree().get_first_node_in_group(&"Dialogue") as Dialogue
+	if dialogue_ui and dialogue_ui.is_dialogue_active():
+		_update_target(null)
+		return
+
 	for body in get_overlapping_bodies():
+		if body == get_parent():
+			continue
+
+		if body is Soul and (body as Soul).can_talk():
+			_update_target(Target.new(null, Target.NONE_CELL, "soul", body as Soul))
+			return
+
 		if body is TileMapLayer:
 			if IGNORED_LAYERS.has(body.name):
 				continue
@@ -49,7 +66,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _current_target: return
 	if event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
-		_activate_current_slot()
+		if _current_target.slot_type == "soul" and is_instance_valid(_current_target.soul):
+			_current_target.soul.start_soul_dialogue(get_parent() as Player)
+			_update_target(null)
+		else:
+			_activate_current_slot()
 
 #endregion
 
@@ -120,6 +141,8 @@ func _update_prompt() -> void:
 	if not _current_target: return
 
 	match _current_target.slot_type:
+		"soul":
+			prompt.show_persistent("Press [E] to talk")
 		"rune":
 			if item_slot.item_is("rune"):          prompt.show_persistent("Press [E] to set the rune")
 			else:                                   prompt.show_persistent("You need a rune")

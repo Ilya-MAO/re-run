@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoulLink" format=3 uid="uid://814snde1bmwa"]
+
+[ext_resource type="Script" uid="uid://bb8pn68ex4p38" path="res://src/characters/entities/souls/soul/soul_role.gd" id="1_wshq2"]
+[ext_resource type="Resource" uid="uid://x2bdllto2pdd" path="res://assets/soul/roles/betrayer.tres" id="2_50dxk"]
+[ext_resource type="Script" uid="uid://b87hgebit7dm5" path="res://src/characters/entities/souls/soul/soul_link.gd" id="2_jd68j"]
+[ext_resource type="Resource" uid="uid://ddxnsr40i3hcl" path="res://assets/soul/roles/protector.tres" id="3_mpd7k"]
+[ext_resource type="Resource" uid="uid://dqg32fvq7fufg" path="res://assets/soul/roles/victim.tres" id="4_av8td"]
+
+[resource]
+script = ExtResource("2_jd68j")
+link_name = "link_2"
+roles = Array[ExtResource("1_wshq2")]([ExtResource("2_50dxk"), ExtResource("3_mpd7k"), ExtResource("4_av8td")])
+metadata/_custom_type_script = "uid://b87hgebit7dm5"

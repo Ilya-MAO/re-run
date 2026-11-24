@@ -26,6 +26,7 @@ signal died
 var _has_block: bool = false
 
 func take_damage(amount: int) -> void:
+	if get_tree().paused: return
 	if _has_block: return
 	_has_block = true
 

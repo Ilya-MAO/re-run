@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bj3c5qv63hx7e"]
+
+[ext_resource type="Script" uid="uid://bo3ytnnask1i1" path="res://src/ui/pause_menu/pause_menu.gd" id="1_fsbbv"]
+[ext_resource type="Texture2D" uid="uid://cl6qr08vejk5v" path="res://assets/textures/button.png" id="2_kqx3l"]
+[ext_resource type="FontFile" uid="uid://cofonxdvulcmm" path="res://assets/fonts/Jersey10.ttf" id="3_j7lcx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j7lcx"]
+font = ExtResource("3_j7lcx")
+font_size = 14
+font_color = Color(0, 0.043137256, 0.12156863, 1)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=939892672]
+script = ExtResource("1_fsbbv")
+metadata/_custom_type_script = "uid://bo3ytnnask1i1"
+
+[node name="Color" type="ColorRect" parent="." unique_id=559637543]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1430849574]
+custom_minimum_size = Vector2(100, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="Back" type="Control" parent="Buttons" unique_id=1867608146]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 20)
+custom_maximum_size = Vector2(75, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprtie" type="TextureRect" parent="Buttons/Back" unique_id=1425084827]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -10.0
+offset_right = 37.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kqx3l")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Buttons/Back" unique_id=1252332928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+label_settings = SubResource("LabelSettings_j7lcx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitGame" type="Control" parent="Buttons" unique_id=1130401928]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 20)
+custom_maximum_size = Vector2(75, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprtie" type="TextureRect" parent="Buttons/ExitGame" unique_id=1351854715]
+custom_maximum_size = Vector2(-1, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -15.0
+offset_right = 37.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kqx3l")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Buttons/ExitGame" unique_id=791699200]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit Game"
+label_settings = SubResource("LabelSettings_j7lcx")
+horizontal_alignment = 1
+vertical_alignment = 1

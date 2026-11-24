@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dkfinh4kxrmhi" path="res://assets/textures/blocks.png" id="11_24vpu"]
 [ext_resource type="PackedScene" uid="uid://djg7ripqpcueo" path="res://src/shared/areas/physic_tile.tscn" id="12_dax8e"]
 [ext_resource type="PackedScene" uid="uid://s4lbuuiektcr" path="res://src/puzzles/mirrors/reflect_backslash/reflect_backslash_mirror.tscn" id="13_wuxpm"]
+[ext_resource type="Script" uid="uid://bnq6t2w0w1q38" path="res://src/shared/spawners/spawner.gd" id="14_bxsu8"]
 [ext_resource type="PackedScene" uid="uid://s40jctnf0qti" path="res://src/puzzles/mirrors/reflect_slash/reflect_slash_mirror.tscn" id="14_fio53"]
 [ext_resource type="PackedScene" uid="uid://dj6beiekncdc" path="res://src/puzzles/mirrors/split/split_mirror.tscn" id="15_5wlnu"]
 [ext_resource type="PackedScene" uid="uid://typ7s8dcn4om" path="res://src/puzzles/lasers/emitter/laser_emitter.tscn" id="16_54cn1"]
@@ -188,6 +189,7 @@ sources/3 = SubResource("TileSetScenesCollectionSource_nfxiy")
 sources/4 = SubResource("TileSetScenesCollectionSource_4mjam")
 
 [node name="Platform" type="Node2D" unique_id=1333403551]
+y_sort_enabled = true
 script = ExtResource("1_chbid")
 metadata/_custom_type_script = "uid://d2hq3357ywnkj"
 
@@ -207,7 +209,9 @@ scale = Vector2(4.8749995, 2.75)
 texture = ExtResource("2_vud8r")
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=302260885]
-position = Vector2(48, 48)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(56, 48)
 script = ExtResource("3_2nof4")
 metadata/_custom_type_script = "uid://co3q535ug310j"
 
@@ -232,6 +236,10 @@ tile_set = SubResource("TileSet_oyxcr")
 [node name="Borders" type="TileMapLayer" parent="Tilemaps" unique_id=579823084]
 unique_name_in_owner = true
 visible = false
-z_index = 3
 tile_map_data = PackedByteArray("AAAHAP//AQAAAAAAAQAIAP//AQAAAAAAAQAJAP//AQAAAAAAAQAKAP//AQAAAAAAAQALAP//AQAAAAAAAQAMAP//AQAAAAAAAQANAP//AQAAAAAAAQAOAP//AQAAAAAAAQAPAP//AQAAAAAAAQAQAP//AQAAAAAAAQAQAAAAAQAAAAAAAQAQAAEAAQAAAAAAAQAQAAIAAQAAAAAAAQAQAAMAAQAAAAAAAQAQAAQAAQAAAAAAAQAQAAUAAQAAAAAAAQAQAAYAAQAAAAAAAQAQAAcAAQAAAAAAAQAQAAgAAQAAAAAAAQAPAAgAAQAAAAAAAQAOAAgAAQAAAAAAAQANAAgAAQAAAAAAAQAMAAgAAQAAAAAAAQALAAgAAQAAAAAAAQAKAAgAAQAAAAAAAQAJAAgAAQAAAAAAAQAIAAgAAQAAAAAAAQAHAAgAAQAAAAAAAQAGAAgAAQAAAAAAAQAFAAgAAQAAAAAAAQAEAAgAAQAAAAAAAQADAAgAAQAAAAAAAQACAAgAAQAAAAAAAQABAAgAAQAAAAAAAQAAAAgAAQAAAAAAAQD//wgAAQAAAAAAAQD//wcAAQAAAAAAAQD//wYAAQAAAAAAAQD//wUAAQAAAAAAAQD//wQAAQAAAAAAAQD//wMAAQAAAAAAAQD//wIAAQAAAAAAAQD//wEAAQAAAAAAAQD//wAAAQAAAAAAAQD/////AQAAAAAAAQAAAP//AQAAAAAAAQABAP//AQAAAAAAAQACAP//AQAAAAAAAQADAP//AQAAAAAAAQAEAP//AQAAAAAAAQAFAP//AQAAAAAAAQAGAP//AQAAAAAAAQA=")
 tile_set = SubResource("TileSet_fuex8")
+
+[node name="Spawner" type="Marker2D" parent="." unique_id=18324109]
+unique_name_in_owner = true
+script = ExtResource("14_bxsu8")
+metadata/_custom_type_script = "uid://bnq6t2w0w1q38"

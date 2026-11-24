@@ -43,6 +43,10 @@ folder_colors={
 "res://src/ui/": "blue"
 }
 
+[global_group]
+
+Dialogue=""
+
 [input]
 
 move_left={

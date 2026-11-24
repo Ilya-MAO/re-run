@@ -69,6 +69,12 @@ func _ready() -> void:
 	add_to_group(&"Players")
 
 func _physics_process(delta: float) -> void:
+	var dialogue_ui := get_tree().get_first_node_in_group(&"Dialogue") as Dialogue
+	if dialogue_ui and dialogue_ui.is_dialogue_active():
+		velocity = Vector2.ZERO
+		animation.set("parameters/blend_position", last_move_direction * player_data.STAND_OFFSET)
+		return
+
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var effective_slow: float = minf(_slow_mult, _get_ground_slow_multiplier())
 	var target_velocity: Vector2 = direction * speed * effective_slow

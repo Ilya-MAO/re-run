@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ccdapnox6fslb"]
+
+[ext_resource type="Script" uid="uid://dvstto5aqpdtn" path="res://src/core/platform_generator.gd" id="1_j704t"]
+[ext_resource type="PackedScene" uid="uid://6crdfhvqxmy7" path="res://src/ui/hud/hud.tscn" id="2_euphc"]
+[ext_resource type="PackedScene" uid="uid://doxyqmi76pq3i" path="res://src/characters/players/test/test_player.tscn" id="3_0thkr"]
+[ext_resource type="PackedScene" uid="uid://bj3c5qv63hx7e" path="res://src/ui/pause_menu/pause_menu.tscn" id="4_jkbth"]
+[ext_resource type="PackedScene" uid="uid://bgg6h0ielx5pm" path="res://src/ui/main_menu/main_menu.tscn" id="5_euphc"]
+
+[sub_resource type="Environment" id="Environment_8j846"]
+background_mode = 3
+ssao_radius = 5.0
+ssao_intensity = 0.0
+ssil_radius = 8.87
+ssil_intensity = 12.2
+ssil_sharpness = 1.0
+ssil_normal_rejection = 0.67
+glow_enabled = true
+glow_intensity = 1.0
+glow_hdr_threshold = 1.05
+
+[node name="RootScene" type="Node2D" unique_id=2042499300]
+
+[node name="PlatformGenerator" type="Node2D" parent="." unique_id=1903775400]
+y_sort_enabled = true
+script = ExtResource("1_j704t")
+hud_scene = ExtResource("2_euphc")
+player_scene = ExtResource("3_0thkr")
+platforms_dir = "res://src/platforms"
+soul_links_dir = "res://assets/soul/links"
+metadata/_custom_type_script = "uid://dvstto5aqpdtn"
+
+[node name="Darker" type="CanvasModulate" parent="." unique_id=847692049]
+color = Color(0.45690507, 0.49067187, 0.59531057, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1313277612]
+environment = SubResource("Environment_8j846")
+
+[node name="MainMenu" parent="." unique_id=680043623 instance=ExtResource("5_euphc")]
+
+[node name="PauseMenu" parent="." unique_id=939892672 instance=ExtResource("4_jkbth")]
+visible = false

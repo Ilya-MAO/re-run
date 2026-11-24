@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cjrek5dg2xun0" path="res://assets/textures/hud/health/back.png" id="2_12dqy"]
 [ext_resource type="Texture2D" uid="uid://y2m1k7j4e63h" path="res://assets/textures/hud/health/border.png" id="3_5yj72"]
 [ext_resource type="Texture2D" uid="uid://bkudsh6uo2jrp" path="res://assets/textures/hud/health/fill.png" id="4_tmbsb"]
-[ext_resource type="Script" uid="uid://ds51xjokrc2vc" path="res://src/ui/health.gd" id="5_ukfwo"]
-[ext_resource type="Script" uid="uid://dnwllwnieoy0e" path="res://src/ui/coins.gd" id="6_wp6mi"]
+[ext_resource type="Script" uid="uid://ds51xjokrc2vc" path="res://src/ui/hud/health.gd" id="5_ukfwo"]
+[ext_resource type="Script" uid="uid://dnwllwnieoy0e" path="res://src/ui/hud/coins.gd" id="6_wp6mi"]
 [ext_resource type="Texture2D" uid="uid://db175tpv4c4ej" path="res://assets/textures/items.png" id="7_k5qe1"]
-[ext_resource type="Script" uid="uid://d1ndpy66k2rcr" path="res://src/ui/minimap.gd" id="8_751uk"]
+[ext_resource type="Script" uid="uid://d1ndpy66k2rcr" path="res://src/ui/hud/minimap.gd" id="8_751uk"]
 [ext_resource type="FontFile" uid="uid://cofonxdvulcmm" path="res://assets/fonts/Jersey10.ttf" id="8_wp6mi"]
-[ext_resource type="Script" uid="uid://bry6hyfe7cvkt" path="res://src/ui/slot.gd" id="9_5yj72"]
+[ext_resource type="Script" uid="uid://bry6hyfe7cvkt" path="res://src/ui/hud/slot.gd" id="9_5yj72"]
 [ext_resource type="Texture2D" uid="uid://cffoa7v18lqq" path="res://assets/textures/hud/minimap/back.png" id="9_w067o"]
 [ext_resource type="Texture2D" uid="uid://ciow1d6j21hlf" path="res://assets/textures/hud/minimap/border.png" id="10_je3ri"]
 
@@ -45,6 +45,8 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u0hr"]
 
 [node name="WorldHud" type="CanvasLayer" unique_id=1138826858]
 
@@ -190,7 +192,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_je3ri")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=103742266]
+[node name="BottomRightCorner" type="MarginContainer" parent="." unique_id=103742266]
 texture_filter = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -204,14 +206,58 @@ offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Slot" type="PanelContainer" parent="MarginContainer" unique_id=1203889508]
+[node name="Slot" type="PanelContainer" parent="BottomRightCorner" unique_id=1203889508]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k5qe1")
 script = ExtResource("9_5yj72")
 metadata/_custom_type_script = "uid://bry6hyfe7cvkt"
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/Slot" unique_id=1976638528]
+[node name="Icon" type="TextureRect" parent="BottomRightCorner/Slot" unique_id=1976638528]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Dialogue" type="PanelContainer" parent="." unique_id=725956865 groups=["Dialogue"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.5
+offset_top = -88.0
+offset_right = 185.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4u0hr")
+
+[node name="Margin" type="MarginContainer" parent="Dialogue" unique_id=880325640]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="HBox" type="HBoxContainer" parent="Dialogue/Margin" unique_id=966001865]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 4
+
+[node name="Portrait" type="TextureRect" parent="Dialogue/Margin/HBox" unique_id=94231537]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ContentVBox" type="VBoxContainer" parent="Dialogue/Margin/HBox" unique_id=2032231276]
+layout_mode = 2
+
+[node name="TextHBox" type="HBoxContainer" parent="Dialogue/Margin/HBox/ContentVBox" unique_id=65175705]
+layout_mode = 2
+
+[node name="AsteriskLabel" type="Label" parent="Dialogue/Margin/HBox/ContentVBox/TextHBox" unique_id=575858409]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextLabel" type="RichTextLabel" parent="Dialogue/Margin/HBox/ContentVBox/TextHBox" unique_id=800623885]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ChoicesBox" type="VBoxContainer" parent="Dialogue/Margin/HBox/ContentVBox/TextHBox" unique_id=1872127999]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://bgg6h0ielx5pm"]
+
+[ext_resource type="Texture2D" uid="uid://cbkh0xhbck5qm" path="res://assets/textures/back.png" id="1_2hyyg"]
+[ext_resource type="Script" uid="uid://csv74gwy5l0qt" path="res://src/ui/main_menu/main_menu.gd" id="1_4ux21"]
+[ext_resource type="Texture2D" uid="uid://cl6qr08vejk5v" path="res://assets/textures/button.png" id="2_4ux21"]
+[ext_resource type="FontFile" uid="uid://cofonxdvulcmm" path="res://assets/fonts/Jersey10.ttf" id="4_3oi2e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vivct"]
+font = ExtResource("4_3oi2e")
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_osdni"]
+font = ExtResource("4_3oi2e")
+font_size = 14
+font_color = Color(0, 0.043137256, 0.12156863, 1)
+
+[node name="MainMenu" type="CanvasLayer" unique_id=680043623]
+physics_interpolation_mode = 2
+script = ExtResource("1_4ux21")
+metadata/_custom_type_script = "uid://csv74gwy5l0qt"
+
+[node name="Sprite" type="TextureRect" parent="." unique_id=1704353718]
+offset_right = 657.0
+offset_bottom = 352.0
+texture = ExtResource("1_2hyyg")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=1356006290]
+offset_left = 475.0
+offset_top = 9.0
+offset_right = 614.0
+offset_bottom = 59.0
+text = "RE:RUN"
+label_settings = SubResource("LabelSettings_vivct")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=788074932]
+custom_minimum_size = Vector2(100, 200)
+offset_left = 494.0
+offset_top = 83.0
+offset_right = 594.0
+offset_bottom = 283.0
+offset_transform_enabled = true
+
+[node name="Play" type="Control" parent="Buttons" unique_id=1024677030]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 18)
+custom_maximum_size = Vector2(75, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprtie" type="TextureRect" parent="Buttons/Play" unique_id=1472255122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.666664
+offset_top = -10.0
+offset_right = 41.666664
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4ux21")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Buttons/Play" unique_id=3805264]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_osdni")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Control" parent="Buttons" unique_id=486654283]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 18)
+custom_maximum_size = Vector2(75, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprtie" type="TextureRect" parent="Buttons/Continue" unique_id=547649154]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.666664
+offset_top = -10.0
+offset_right = 41.666664
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4ux21")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Buttons/Continue" unique_id=436606909]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_osdni")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Control" parent="Buttons" unique_id=1004185629]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 18)
+custom_maximum_size = Vector2(75, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprtie" type="TextureRect" parent="Buttons/Exit" unique_id=1362875600]
+custom_maximum_size = Vector2(-1, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.666664
+offset_top = -10.0
+offset_right = 41.666664
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4ux21")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Buttons/Exit" unique_id=607602922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_osdni")
+horizontal_alignment = 1
+vertical_alignment = 1

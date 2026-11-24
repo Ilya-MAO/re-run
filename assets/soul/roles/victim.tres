@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SoulRole" format=3 uid="uid://dqg32fvq7fufg"]
+
+[ext_resource type="Script" uid="uid://bb8pn68ex4p38" path="res://src/characters/entities/souls/soul/soul_role.gd" id="1_4k5jo"]
+
+[resource]
+script = ExtResource("1_4k5jo")
+role_id = &"victim"
+role_name = "Жертва"
+metadata/_custom_type_script = "uid://bb8pn68ex4p38"

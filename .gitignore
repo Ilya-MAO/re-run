@@ -1,6 +1,7 @@
 .godot/
 *.import
 *.gd.uid
+export_presets.cfg
 
 addons/
 aseprite/

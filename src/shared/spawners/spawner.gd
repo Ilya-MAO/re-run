@@ -1,20 +1,24 @@
 class_name Spawner
 extends Marker2D
 
-
-@export var entity_scenes: Array[PackedScene] = []
-@export_range(0.0, 1.0) var spawn_chance: float = 1.0
+@export var soul_scenes: Array[PackedScene] = []
 
 
-func spawn() -> Character:
-	if entity_scenes.is_empty() or randf() > spawn_chance: return null
+func has_scenes() -> bool:
+	return not soul_scenes.is_empty()
 
-	var scene: PackedScene = entity_scenes.pick_random()
-	if not scene: return null
 
-	var entity := scene.instantiate() as Character
-	if not entity: return null
+func spawn_soul() -> Soul:
+	if soul_scenes.is_empty():
+		return null
 
-	entity.z_index = 200
-	entity.global_position = global_position
-	return entity
+	var scene: PackedScene = soul_scenes.pick_random()
+	if not scene:
+		return null
+
+	var soul := scene.instantiate() as Soul
+	if not soul:
+		return null
+
+	soul.global_position = global_position
+	return soul
